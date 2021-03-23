@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E70E862D-FE23-0116-8E66-65951B9D8DBD" name="Reservations">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>FDEAA2B4-79DB-0725-703F-8530D54BC987</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_reservation" id="2BB84980-3C0C-9BF5-1F2B-2235BEE174A9">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>C5BB7F86-716F-974B-2916-C9F94944AD13</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="seats" id="52F43CA3-C392-DF7F-AE69-F36CA05015E1">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>93D33A05-DCD8-3BA6-2F05-524A09758AA3</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Projection_id_proj" id="BFDBADEC-36F7-3FC8-0E05-7362E83E3F30">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>37793160-A7E5-3B74-962E-C24ADA702978</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AA6ABBF5-3C00-BD53-2E97-114C4B1A6EF7" referredColumn="CD33353A-67E8-060D-9241-89BE5B73A03A"/>
+</associations>
+</Column>
+<Column name="client_id_client" id="BCBD51D7-1092-F92D-113A-000DC3452630">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>5D5CD61F-54A0-E104-E590-AE3257F075E2</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AF8D3C3A-013E-FEBE-8F77-FA482EE6B374" referredColumn="9734D6DB-6688-8525-EF7B-EEC9B79EE405"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="346E542B-A5EE-64B0-F845-2E2BD973970C" name="Reservations_client_FK">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>5440F1E6-6FD6-CE2B-2C8B-8FB01AE068EC</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCBD51D7-1092-F92D-113A-000DC3452630"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4442E7EC-4013-85A3-06DE-08A32EEFB673" name="Reservations_Projection_FK">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>7763628D-82C9-0602-09DD-6D2D405FA6E9</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BFDBADEC-36F7-3FC8-0E05-7362E83E3F30"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
