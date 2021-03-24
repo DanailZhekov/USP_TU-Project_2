@@ -4,6 +4,6 @@
 public class MunchGang{
 public static void main(String[] Args){
 
-    System.out.println("vischko praq za muncha, chox cring-A,dvoikadjii");
+    System.out.println("vischko praq za muncha, chox cring-A,dvoikadjiq");
 }
 }
