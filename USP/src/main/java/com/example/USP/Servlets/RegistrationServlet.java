@@ -1,5 +1,7 @@
 package com.example.USP.Servlets;
 
+import com.example.USP.DAO.ClientDAO;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,7 @@ public class RegistrationServlet extends HttpServlet {
     private String phone_Client;
     private int age_Client;
     private String password_Client;
+    private ClientDAO clientDAO;
 
     @Override
     public void init() throws ServletException {
@@ -28,6 +31,7 @@ public class RegistrationServlet extends HttpServlet {
         phone_Client=req.getParameter("Client_phone");
         age_Client= Integer.parseInt(req.getParameter("Client_age"));
         password_Client=req.getParameter("Client_password");
+        clientDAO.RegistrationOfClient(name_Client,email_Client,phone_Client,age_Client,password_Client);
     }
     @Override
     public void destroy() {

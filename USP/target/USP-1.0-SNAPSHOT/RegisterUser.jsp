@@ -19,11 +19,11 @@
         var idPhone = document.getElementById("idPhone");
         var idAge = document.getElementById("idAge");
         var idPassword = document.getElementById("idPassword");
-        let regexName = new RegExp("[A-Za-z]{5,20}");
-        let regexEmail = new RegExp("/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/");
-        let regexPhone = new RegExp("[0-9]{10}");
-        let regexAge = new RegExp("[0-9]{1,2}");
-        let regexPassword = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+        let regexName = new RegExp("");
+        let regexEmail = new RegExp("");
+        let regexPhone = new RegExp("");
+        let regexAge = new RegExp("");
+        let regexPassword = new RegExp("");
         if (!idName.value.match(regexName)) {
             alert("Invalid Name")
         }

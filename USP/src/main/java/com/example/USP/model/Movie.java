@@ -12,6 +12,8 @@ public class Movie {
     protected String rating_movie;
     protected String genre_movie;
 
+    protected String city_movie; //>?
+
     public Movie(){
         this.id_movie=getId_movie();
         this.name_movie=getName_movie();
@@ -21,6 +23,7 @@ public class Movie {
         this.summary_movie=getSummary_movie();
         this.rating_movie=getRating_movie();
         this.genre_movie=getGenre_movie();
+        this.city_movie=getCity_movie();
     }
 
     public int getId_movie() {
@@ -85,6 +88,15 @@ public class Movie {
 
     public void setGenre_movie(String genre_movie) {
         this.genre_movie = genre_movie;
+    }
+
+
+    public String getCity_movie() {
+        return city_movie;
+    }
+
+    public void setCity_movie(String city_movie) {
+        this.city_movie = city_movie;
     }
 
 
