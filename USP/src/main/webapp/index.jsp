@@ -3,27 +3,44 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
+<script type="text/javascript">
+    function selectFromCombo(){ //chrez tazi funkciq vzemame dvete izbrani stoinosti syotvetno ot dvata combobox-a i setvame na skriti input
+        // poleta(hidden),ot koito shte vzemem stoinostite i shte gi setnem v servleta.
+var city=document.getElementById("cities");
+var movie=document.getElementById("movies");
+var selectCity=city.options[city.selectedIndex].value;
+var selectMovie=movie.options[movie.selectedIndex].value;
+document.getElementById("city").value=selectCity;
+document.getElementById("movie").value=selectMovie
+    }
+</script>
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
 <%-- TOVA SA SAMITE COMBOBOX-VE SYOTVETNO ZA DVATA LISTA.
  Изберете град: &nbsp
-            <select name="cities">
+            <select name="cities" id="cities">
                 <c:forEach var="city" items="${cityList}">
-                    <option>${city.city_movie}</option>
+                    <option value="${city.city_movie}">${city.city_movie}</option>
                     </option>
                 </c:forEach>
             </select>
  Изберете филм: &nbsp
-            <select name="movies">
+            <select name="movies" id="movies">
                 <c:forEach var="movie" items="${MovieList}">
-                    <option>${movie.name_movie}</option>
+                    <option value="${movie.name_movie}">${movie.name_movie}</option>
                     </option>
                 </c:forEach>
             </select>
+            <input type="text" name="dateReservation" id="dateReservation">
+            или
+            <input type="text" mame="nameMovie" id="nameMovie">
+            <input type="hidden" name="city" id="city">
+            <input type="hidden" name="movie" id="movie">
 --%>
 </body>
 </html>

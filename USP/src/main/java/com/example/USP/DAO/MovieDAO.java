@@ -80,4 +80,40 @@ public class MovieDAO {
         }
        return listCity;
     }
+    //update 15.4.21
+    public List<Movie> searchMovieOfName(String MovieName)  throws SQLException,ClassNotFoundException{ // Zaqvka po tursene na ime na film.
+        String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING \n"+
+                "FROM MOVIE M \n" +
+                "INNER JOIN GENRE G ON M.GENRE_ID_GENRE=M.ID_GENRE \n"+
+                "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n"+
+                "WHERE M.MOVIE_NAME='"+MovieName+"'; \n";
+        List<Movie> listMovie=new ArrayList<>();
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
+            ResultSet resultSet=preparedStatement.executeQuery();
+            listMovie=getInfomationOfMovie(resultSet);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return listMovie;
+    }
+    public List<Movie> searchMovie(String kino,String MovieName,String DateProjection)  throws SQLException,ClassNotFoundException{ // Trqbva da se opravi datata, zadavam q za sega kato string
+        String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING \n"+
+                "FROM MOVIE M \n" +
+                "INNER JOIN GENRE G ON M.GENRE_ID_GENRE=M.ID_GENRE \n"+
+                "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n"+
+                "INNER JOIN PROJECTION P ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
+                "INNER JOIN RESERVATIONS RS ON RS.PROJECTION_ID_PROJ=P.ID_PROJ \n"+
+                "INNER JOIN CITY C RS.CITY_ID_CITY=C.ID_CITY \n"+
+                "WHERE C.NAME_CITY='"+kino+"'AND M.MOVIE_NAME='"+MovieName+"'AND P.date='"+DateProjection+"'";
+        List<Movie> listSearchMovie=new ArrayList<>();
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
+            ResultSet resultSet=preparedStatement.executeQuery();
+            listSearchMovie=getInfomationOfMovie(resultSet);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return listSearchMovie;
+    }
 }
