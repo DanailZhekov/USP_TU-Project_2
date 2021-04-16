@@ -97,7 +97,7 @@ public class MovieDAO {
         }
         return listMovie;
     }
-    public List<Movie> searchMovie(String kino,String MovieName,String DateProjection)  throws SQLException,ClassNotFoundException{ // Trqbva da se opravi datata, zadavam q za sega kato string
+   public List<Movie> searchMovie(String kino,String MovieName,String DateProjection)  throws SQLException,ClassNotFoundException{ // Trqbva da se opravi datata, zadavam q za sega kato string
         String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING \n"+
                 "FROM MOVIE M \n" +
                 "INNER JOIN GENRE G ON M.GENRE_ID_GENRE=M.ID_GENRE \n"+
