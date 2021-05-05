@@ -30,6 +30,48 @@ public class ProjectionDAO {
         }
         return cinemasLiST;
     }
+    public int getIdMovie(ResultSet rs) throws SQLException{
+        int id_movie=0;
+        while(rs.next()){
+            id_movie=rs.getInt("ID_MOVIE");
+        }
+        return id_movie;
+    }
+    public int getIdProjection(ResultSet rs) throws SQLException{
+        int id_proj=0;
+        while(rs.next()){
+            id_proj=rs.getInt("ID_PROJ");
+        }
+        return id_proj;
+    }
+    public int selectIdProjection(Timestamp time_proj){
+        String sqlMovie="SELECT P.ID_PROJ \n"+
+                "FROM PROJECTION P \n"+
+                "WHERE P.TIME='"+time_proj+"' \n";
+        int id_movie = 0;
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlMovie)){
+            ResultSet resultSet=preparedStatement.executeQuery();
+            id_movie=getIdProjection(resultSet);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return id_movie;
+    }
+    public int selectIdMovie(String name_movie){
+        String sqlMovie="SELECT M.ID_MOVIE \n"+
+                "FROM MOVIE M \n"+
+                "WHERE M.MOVIE_NAME='"+name_movie+"' \n";
+        int id_movie = 0;
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlMovie)){
+            ResultSet resultSet=preparedStatement.executeQuery();
+            id_movie=getIdMovie(resultSet);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return id_movie;
+    }
     public List<Projection> getProjetions(ResultSet rs) throws SQLException{
         List<Projection> projectionList=new ArrayList<>();
         while (rs.next()){

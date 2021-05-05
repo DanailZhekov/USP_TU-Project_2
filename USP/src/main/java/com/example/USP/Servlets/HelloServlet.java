@@ -17,6 +17,7 @@ import javax.servlet.annotation.*;
 public class HelloServlet extends HttpServlet {
     private int id_city;
     private int id_client;
+    private int id_movie;
     private String getMovieFromList;
     private String getCityFromList;
     private String getSearchDate;
@@ -54,8 +55,8 @@ public class HelloServlet extends HttpServlet {
         }
         request.setAttribute("cityList",cityList); // ще ги сетнем на два комбо-бокса където потребителя само ще си избира.
         request.setAttribute("MovieList",movieList);
-        getMovieFromList=request.getParameter("city");//update 15.04
-        getCityFromList=request.getParameter("movie");
+        getMovieFromList=request.getParameter("movie");//update 15.04
+        getCityFromList=request.getParameter("city");
         getSearchDate=request.getParameter("dateReservation");
         getSearchNameMovie=request.getParameter("nameMovie");
 
@@ -65,6 +66,7 @@ public class HelloServlet extends HttpServlet {
             projectionList= projectionDAO.searchProjection(getCityFromList,getMovieFromList,getSearchDate); // tuk izvejda projekciite sprqmo filma
             SearchListProjection=projectionDAO.searchOfNameProjections(getSearchNameMovie);// tyk syshto shte izvejda projekciite sprqmo filma,no po tursene na ime
             id_city=movieDAO.selectIdFromMovie(getCityFromList);// tuk moje da ima error zashtoto ne znam v getCityFrom.. dali vzema id-to ot combo-boxa ili vzema string
+            id_movie=projectionDAO.selectIdMovie(getSearchNameMovie);// tuk vzemame id na film no go vzemame po vuvedeno ime na film! ! !
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
