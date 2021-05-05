@@ -35,6 +35,7 @@ public class KinoServlet extends HttpServlet {
         // i shte moje da vidi ot tuk projekciite v dadenoto kino.
         cinemaList=(List)req.getSession().getAttribute("allCinemas");
         RequestDispatcher requestDispatcher=req.getRequestDispatcher("Kino.jsp");
+        req.setAttribute("kino",cinemaList);
         requestDispatcher.forward(req,resp);
     }
 

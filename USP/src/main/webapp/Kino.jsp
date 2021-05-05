@@ -13,6 +13,23 @@
 <body>
 <%--
 <form action="KinoServlet" method="post">
+<table>
+                <tr>
+                    <th>Grad</th>
+                    <th>max mesta</th>
+                    </tr>
+                    <tr>
+                        <c:forEach var="kino" items="${cinemaList}">
+                        <td>
+                        <c:out value="${kino.city_projetion}"/>
+                       </td>
+                        <td>
+                        <c:out value="${kino.max_seats}"/>
+                       </td>
+                    </tr>
+                       </c:forEach>
+
+                    </table>
 
 </form>
 --%>
