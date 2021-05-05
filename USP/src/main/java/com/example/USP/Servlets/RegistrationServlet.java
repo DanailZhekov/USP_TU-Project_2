@@ -32,6 +32,7 @@ public class RegistrationServlet extends HttpServlet {
         age_Client= Integer.parseInt(req.getParameter("Client_age"));
         password_Client=req.getParameter("Client_password");
         clientDAO.RegistrationOfClient(name_Client,email_Client,phone_Client,age_Client,password_Client);
+        resp.sendRedirect("LoginServlet");// tuk ne znam i az hahah ili shte izpolzvame dispatcher za jsp file
     }
     @Override
     public void destroy() {

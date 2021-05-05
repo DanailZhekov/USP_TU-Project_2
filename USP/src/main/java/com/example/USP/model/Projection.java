@@ -12,6 +12,7 @@ public class Projection {
     private String client_name;
     private String client_email;
     private String rating_movie;
+    private int max_seats;
 
     public Projection(){
         this.projection_date=getProjection_date();
@@ -22,7 +23,19 @@ public class Projection {
         this.client_name=getClient_name();
         this.client_email=getClient_email();
         this.rating_movie=getRating_movie();
+        this.max_seats=getMax_seats();
     }
+
+
+    public int getMax_seats() {
+        return max_seats;
+    }
+
+    public void setMax_seats(int max_seats) {
+        this.max_seats = max_seats;
+    }
+
+
 
     public String getRating_movie() {
         return rating_movie;

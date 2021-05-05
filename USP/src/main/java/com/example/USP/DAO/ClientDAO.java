@@ -28,6 +28,13 @@ public class ClientDAO {
         }
         return clientName;
     }
+    private int getIdOfClient(ResultSet rs) throws SQLException{
+        int clientId = 0;
+        while (rs.next()) {
+            clientId = rs.getInt("ID_CLIENT");
+        }
+        return clientId;
+    }
     public String selectNameOfLog(String email_client, String password_client) {
         String query_Client = "SELECT C.NAME \n"+
                 "FROM CLIENT C \n" +
@@ -40,6 +47,19 @@ public class ClientDAO {
             throwables.printStackTrace();
         }
         return name_client;
+    }
+    public int selectIDofClient(String name_client){
+        String query_Client = "SELECT C.ID_CLIENT \n"+
+                "FROM CLIENT C \n" +
+                "WHERE C.NAME='"+name_client+"'";
+        int clientId = 0;
+        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(query_Client)) {
+            ResultSet resultSet=preparedStatement.executeQuery();
+            clientId=getIdOfClient(resultSet);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return clientId;
     }
     public void RegistrationOfClient(String name_client,String email_client,String phone_client,int age_client,String pass_client){
         String insert_client="BEGIN \n"+

@@ -41,5 +41,10 @@
         }
     }
 </script>
+<%--
+<form action="RegistrationServlet" method="post">
+<input type="submit" name="registration" value="Registrirai se">
+</form>
+--%>
 </body>
 </html>

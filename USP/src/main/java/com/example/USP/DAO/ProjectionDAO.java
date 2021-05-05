@@ -21,7 +21,15 @@ public class ProjectionDAO {
         }
         return connection;
     }
-
+    public List<Projection> getCinemas(ResultSet rs) throws SQLException {
+        List<Projection> cinemasLiST=new ArrayList<>();
+        while (rs.next()) {
+            Projection projection=new Projection();
+            projection.setCity_projetion(rs.getString("NAME_CITY"));
+            cinemasLiST.add(projection);
+        }
+        return cinemasLiST;
+    }
     public List<Projection> getProjetions(ResultSet rs) throws SQLException{
         List<Projection> projectionList=new ArrayList<>();
         while (rs.next()){
@@ -49,6 +57,31 @@ public class ProjectionDAO {
             throwables.printStackTrace();
         }
         return listSearchMovie;
+    }
+    public List<Projection> searchOfNameProjections(String nameMovie){
+        String sqlSearch="SELECT M.MOVIE_NAME,P.date,P.TIME,R.RATING \n"+
+                "FROM MOVIE M \n" +
+                "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n "+
+                "INNER JOIN PROJECTION P ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
+                "WHERE C.NAME_CITY='"+nameMovie+"'; \n";
+        List<Projection> Searchlist=new ArrayList<>();
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
+            ResultSet resultSet=preparedStatement.executeQuery();
+            Searchlist=getProjetions(resultSet);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return Searchlist;
+    }
+    public List<Projection> getAllCinemas() throws SQLException {
+        String sql = "SELECT * FROM CITY";
+        List<Projection> listCinemas = new ArrayList<>();
+        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            listCinemas = getCinemas(resultSet);
+        }
+        return listCinemas;
     }
     public  void ProjectionReservation(int br_seats,int project_id,int client_id,int city_id){
         String reservation=

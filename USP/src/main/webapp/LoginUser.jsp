@@ -26,5 +26,11 @@
         }
     }
 </script>
+<%--
+<form action="LoginServlet" method="post">
+<input type="submit" name="vhod" value="VHOD">
+<input type="submit" name="registraciq" value="Nova Registraciq">
+</form>
+--%>
 </body>
 </html>

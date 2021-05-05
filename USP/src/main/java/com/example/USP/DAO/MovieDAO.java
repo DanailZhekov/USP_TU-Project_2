@@ -40,10 +40,31 @@ public class MovieDAO {
         }
         return citylist;
     }
-    public List<Movie> getInfomationOfMovie(ResultSet rs)throws SQLException{ // Shte ni posluji za rezultata na informaciqta za filma po zaqvka
-        List<Movie> infoList=new ArrayList<>();
+    public int getIdCity(ResultSet rs) throws SQLException{
+        int id_city=0;
+        while(rs.next()){
+            id_city=rs.getInt("ID_CITY");
+        }
+        return id_city;
+    }
+    public int selectIdFromMovie(String name_city){
+        String sqlCity="SELECT C.ID_CITY \n"+
+                "FROM CITY C \n"+
+                "WHERE C.NAME_CITY='"+name_city+"' \n";
+        int id_city = 0;
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlCity)){
+            ResultSet resultSet=preparedStatement.executeQuery();
+            id_city=getIdCity(resultSet);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return id_city;
+    }
+    public Movie getInfomationOfMovie(ResultSet rs)throws SQLException{ // Shte ni posluji za rezultata na informaciqta za filma po zaqvka
+        Movie movie=null;
         while (rs.next()){
-            Movie movie=new Movie();
+            movie=new Movie();
             movie.setName_movie(rs.getString("MOVIE_NAME"));
             movie.setDirector_movie(rs.getString("DIRECTOR"));
             movie.setLenght_movie(rs.getTimestamp("LENGHT"));
@@ -51,9 +72,8 @@ public class MovieDAO {
             movie.setSummary_movie(rs.getString("SUMMARY"));
             movie.setGenre_movie(rs.getString("GENRE"));
             movie.setRating_movie(rs.getString("RATING"));
-            infoList.add(movie);
         }
-        return infoList;
+        return movie;
     }
     public List<Movie> selectMoviesOfReservation(){
         List<Movie> movies=new ArrayList<>();
@@ -81,23 +101,23 @@ public class MovieDAO {
        return listCity;
     }
     //update 15.4.21
-    public List<Movie> searchMovieOfName(String MovieName)  throws SQLException,ClassNotFoundException{ // Zaqvka po tursene na ime na film.
+    public Movie searchMovieOfName(String MovieName)  throws SQLException,ClassNotFoundException{ // Zaqvka po tursene na ime na film.
         String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING \n"+
                 "FROM MOVIE M \n" +
                 "INNER JOIN GENRE G ON M.GENRE_ID_GENRE=M.ID_GENRE \n"+
                 "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n"+
                 "WHERE M.MOVIE_NAME='"+MovieName+"'; \n";
-        List<Movie> listMovie=new ArrayList<>();
+        Movie recieveMovie=new Movie();
         try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
             ResultSet resultSet=preparedStatement.executeQuery();
-            listMovie=getInfomationOfMovie(resultSet);
+            recieveMovie=getInfomationOfMovie(resultSet);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return listMovie;
+        return recieveMovie;
     }
-   public List<Movie> searchMovie(String kino,String MovieName,String DateProjection)  throws SQLException,ClassNotFoundException{ // Trqbva da se opravi datata, zadavam q za sega kato string
+   public Movie searchMovie(String MovieName)  throws SQLException,ClassNotFoundException{ // Trqbva da se opravi datata, zadavam q za sega kato string
         String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING \n"+
                 "FROM MOVIE M \n" +
                 "INNER JOIN GENRE G ON M.GENRE_ID_GENRE=M.ID_GENRE \n"+
@@ -105,15 +125,15 @@ public class MovieDAO {
                 "INNER JOIN PROJECTION P ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
                 "INNER JOIN RESERVATIONS RS ON RS.PROJECTION_ID_PROJ=P.ID_PROJ \n"+
                 "INNER JOIN CITY C RS.CITY_ID_CITY=C.ID_CITY \n"+
-                "WHERE C.NAME_CITY='"+kino+"'AND M.MOVIE_NAME='"+MovieName+"'AND P.date='"+DateProjection+"'";
-        List<Movie> listSearchMovie=new ArrayList<>();
+                "WHERE M.MOVIE_NAME='"+MovieName+"'";
+         Movie recieveMovie=new Movie();
         try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
             ResultSet resultSet=preparedStatement.executeQuery();
-            listSearchMovie=getInfomationOfMovie(resultSet);
+            recieveMovie=getInfomationOfMovie(resultSet);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return listSearchMovie;
+        return recieveMovie;
     }
 }

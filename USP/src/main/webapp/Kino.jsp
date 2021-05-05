@@ -11,6 +11,10 @@
     <title>Title</title>
 </head>
 <body>
+<%--
+<form action="KinoServlet" method="post">
 
+</form>
+--%>
 </body>
 </html>

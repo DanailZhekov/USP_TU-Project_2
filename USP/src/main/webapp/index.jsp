@@ -21,7 +21,15 @@ document.getElementById("movie").value=selectMovie
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+
 <%-- TOVA SA SAMITE COMBOBOX-VE SYOTVETNO ZA DVATA LISTA.
+
+<form action="HelloServlet" method="post"> -> Tova shte e glavnata forma koqto izpylnqva glavniqt servlet- HelloServlet i sprqmo butonite shte ni nasochva kym drugi servleti.
+
+-> tuk predpolagam shte imame nqkakauv dizain za headera
+            <input type="submit" name="vhod" value="vhod">
+            <input type="submit" name="kina" value="Kina">
+
  Изберете град: &nbsp
             <select name="cities" id="cities">
                 <c:forEach var="city" items="${cityList}">
@@ -39,6 +47,7 @@ document.getElementById("movie").value=selectMovie
             <input type="text" name="dateReservation" id="dateReservation">
             или
             <input type="text" mame="nameMovie" id="nameMovie">
+            <input type="submit" name="search" value="tursi">
             <input type="hidden" name="city" id="city">
             <input type="hidden" name="movie" id="movie">
 --%>
