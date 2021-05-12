@@ -17,8 +17,7 @@ document.getElementById("city").value=selectCity;
 document.getElementById("movie").value=selectMovie
     }
 </script>
-<h1><%= "Hello World!" %>
-</h1>
+<h1>Dobre doshli ${Name}</h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
 

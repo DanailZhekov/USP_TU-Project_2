@@ -43,6 +43,9 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String name_client;
+        name_client=(String) request.getSession().getAttribute("NameClient");
+        request.setAttribute("Name",name_client);
         id_client= (int) request.getSession().getAttribute("idClient");
         try{
             cityList= movieDAO.selectCityOfReservation();
@@ -55,19 +58,20 @@ public class HelloServlet extends HttpServlet {
         }
         request.setAttribute("cityList",cityList); // ще ги сетнем на два комбо-бокса където потребителя само ще си избира.
         request.setAttribute("MovieList",movieList);
-        getMovieFromList=request.getParameter("movie");//update 15.04
-        getCityFromList=request.getParameter("city");
-        getSearchDate=request.getParameter("dateReservation");
-        getSearchNameMovie=request.getParameter("nameMovie");
+        getMovieFromList=request.getParameter("movie");//vzemame film ot combobox
+        getCityFromList=request.getParameter("city");// vzemame kino v grad ot combobox
+        getSearchDate=request.getParameter("dateReservation");// vuvejdame data za projekciq
+        getSearchNameMovie=request.getParameter("nameMovie");// tova e opciq dve za tursene po ime na film
 
         try {
-            resultList=movieDAO.searchMovie(getMovieFromList);// tuk izvejda samo informaciq za filma(aktiori,vremetraene i prochie)
-            resultListOfName=movieDAO.searchMovieOfName(getSearchNameMovie);// тук също извежда информация за филма,но като се търси по име
-            projectionList= projectionDAO.searchProjection(getCityFromList,getMovieFromList,getSearchDate); // tuk izvejda projekciite sprqmo filma
-            SearchListProjection=projectionDAO.searchOfNameProjections(getSearchNameMovie);// tyk syshto shte izvejda projekciite sprqmo filma,no po tursene na ime
-            id_city=movieDAO.selectIdFromMovie(getCityFromList);// tuk moje da ima error zashtoto ne znam v getCityFrom.. dali vzema id-to ot combo-boxa ili vzema string
-            id_movie=projectionDAO.selectIdMovie(getSearchNameMovie);// tuk vzemame id na film no go vzemame po vuvedeno ime na film! ! !
-
+            if(getMovieFromList!=null&&getCityFromList!=null&&getSearchDate!=null){// tova go pravim za da proverim purvo dali neshto e vuvejdal potrebitelq v trite combobox-a
+                resultList=movieDAO.searchMovie(getMovieFromList);// tuk izvejda samo informaciq za filma(aktiori,vremetraene i prochie)
+                projectionList= projectionDAO.searchProjection(getCityFromList,getMovieFromList,getSearchDate); // tuk izvejda projekciite sprqmo filma
+            }
+            else if(getSearchNameMovie!=null){
+                resultListOfName=movieDAO.searchMovieOfName(getSearchNameMovie);// тук също извежда информация за филма,но като се търси по име
+                SearchListProjection=projectionDAO.searchOfNameProjections(getSearchNameMovie);// tyk syshto shte izvejda projekciite sprqmo filma,no po tursene na ime
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -80,13 +84,19 @@ public class HelloServlet extends HttpServlet {
         else if(request.getParameter("search")!=null){
             // tuk trqbva da vidim kak ako potrebitelq izbere da vuvede ime na film i po nego da napravi zaqvka za infomaciqta za filma i projekciite,
             // da ne se prashtat danni ot combo-boxovete tui kato tam nqma da ima vuvedeno nishto
-            request.getSession().setAttribute("searchMovieName",resultListOfName);// informaciq za filma
-            request.getSession().setAttribute("getMovieName",resultList);// informaciq za filma
-             request.getSession().setAttribute("ListOfProjections",projectionList);//projekcii
-             request.getSession().setAttribute("SeachOfNameProjections",SearchListProjection);//projekcii
-             request.getSession().setAttribute("ClientId",id_client);
-             request.getSession().setAttribute("CityId",id_city);
-            response.sendRedirect("ResultServlet");
+            if(getMovieFromList!=null&&getCityFromList!=null&&getSearchDate!=null){
+                request.getSession().setAttribute("getMovieName",resultList);// informaciq za filma
+                request.getSession().setAttribute("ListOfProjections",projectionList);//projekcii
+                request.getSession().setAttribute("City",getCityFromList);
+                request.getSession().setAttribute("ClientId",id_client);
+                response.sendRedirect("ResultServlet");
+            }
+            else if(getSearchNameMovie!=null){
+                request.getSession().setAttribute("searchMovieName",resultListOfName);// informaciq za filma
+                request.getSession().setAttribute("SeachOfNameProjections",SearchListProjection);//projekcii
+                request.getSession().setAttribute("ClientId",id_client);
+                response.sendRedirect("ResultServlet");
+            }
         }
         else if(request.getParameter("kina")!=null){
             request.getSession().setAttribute("allCinemas",cinemaList);

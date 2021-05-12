@@ -44,20 +44,6 @@ public class ProjectionDAO {
         }
         return id_proj;
     }
-    public int selectIdProjection(Timestamp time_proj){
-        String sqlMovie="SELECT P.ID_PROJ \n"+
-                "FROM PROJECTION P \n"+
-                "WHERE P.TIME='"+time_proj+"' \n";
-        int id_movie = 0;
-        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlMovie)){
-            ResultSet resultSet=preparedStatement.executeQuery();
-            id_movie=getIdProjection(resultSet);
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return id_movie;
-    }
     public int selectIdMovie(String name_movie){
         String sqlMovie="SELECT M.ID_MOVIE \n"+
                 "FROM MOVIE M \n"+
@@ -125,7 +111,22 @@ public class ProjectionDAO {
         }
         return listCinemas;
     }
-    public  void ProjectionReservation(int br_seats,int project_id,int client_id,int city_id){
+    public int SelectIdFromProjection(Date date,Date time,int MovieId){
+        String sqlSearch="SELECT P.ID_PROJ \n"+
+                "FROM PROJECTION P \n"+
+                "INNER JOIN MOVIE M ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
+                "WHERE P.date='"+date+"' AND P.TIME='"+time+"' AND M.ID_MOVIE='"+MovieId+"';";
+        int idProject = 0;
+        try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
+            ResultSet resultSet=preparedStatement.executeQuery();
+            idProject=getIdProjection(resultSet);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return idProject;
+    }
+    public  void insertReservation(int br_seats,int project_id,int client_id,int city_id){
         String reservation=
                 "BEGIN \n"+
                         "INSERT RESERVATIONS(ID_RESERVATION,SEATS,PROJECTION_ID_PROJ,CLIENT_ID_CLIENT,CITY_ID_CITY) \n" +

@@ -102,7 +102,7 @@ public class MovieDAO {
     }
     //update 15.4.21
     public Movie searchMovieOfName(String MovieName)  throws SQLException,ClassNotFoundException{ // Zaqvka po tursene na ime na film.
-        String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING \n"+
+        String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING,M.DIRECTOR \n"+
                 "FROM MOVIE M \n" +
                 "INNER JOIN GENRE G ON M.GENRE_ID_GENRE=M.ID_GENRE \n"+
                 "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n"+
@@ -118,7 +118,7 @@ public class MovieDAO {
         return recieveMovie;
     }
    public Movie searchMovie(String MovieName)  throws SQLException,ClassNotFoundException{ // Trqbva da se opravi datata, zadavam q za sega kato string
-        String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING \n"+
+        String sqlSearch="SELECT M.MOVIE_NAME,M.SUMMARY,M.LENGHT,M.ACTORS,G.GENRE,R.RATING,M.DIRECTOR \n"+
                 "FROM MOVIE M \n" +
                 "INNER JOIN GENRE G ON M.GENRE_ID_GENRE=M.ID_GENRE \n"+
                 "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n"+

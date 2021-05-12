@@ -35,6 +35,7 @@ public class LoginServlet extends HttpServlet {
             Client_name = clientDAO.selectNameOfLog(log_Email, log_Pass);
             id_client=clientDAO.selectIDofClient(Client_name);
             req.getSession().setAttribute("idClient",id_client);
+            req.getSession().setAttribute("NameClient",Client_name);
             resp.sendRedirect("HelloServlet");
         }
         else if(req.getParameter("registraciq")!=null){
