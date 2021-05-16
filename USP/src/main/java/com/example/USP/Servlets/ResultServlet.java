@@ -69,11 +69,11 @@ public class ResultServlet extends HttpServlet {
             req.setAttribute("RatingMovie",getMovieInfo.getRating_movie());
             req.setAttribute("ListOfProjections",projectionListName);
         }
+        //project_id=projectionDAO.SelectIdFromProjection(data,time,movie_id);
         if(req.getParameter("reserv")!=null){
             RequestDispatcher dispatcher=req.getRequestDispatcher("Reservation.jsp");
             dispatcher.forward(req,resp);
         }
-       // project_id=projectionDAO.SelectIdFromProjection(data,time,movie_id);
         dispatcher1.forward(req,resp);
     }
     @Override

@@ -62,19 +62,19 @@ public class ProjectionDAO {
         List<Projection> projectionList=new ArrayList<>();
         while (rs.next()){
             Projection projection=new Projection();
-            projection.setNameMovie(rs.getString("MOVIE_NAME"));
             projection.setProjection_date(rs.getDate("date"));
+            projection.setCity_projetion(rs.getString("NAME_CITY"));
             projection.setProjection_time(rs.getTimestamp("TIME"));
-            projection.setRating_movie(rs.getString("RATING"));
             projectionList.add(projection);
         }
         return projectionList;
     }
     public List<Projection> searchProjection(String kino,String MovieName,String DateProjection){
-        String sqlSearch="SELECT M.MOVIE_NAME,P.date,P.TIME,R.RATING \n"+
-                "FROM MOVIE M \n" +
-                "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n "+
-                "INNER JOIN PROJECTION P ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
+        String sqlSearch="SELECT P.date,C.NAME_CITY,P.TIME \n"+
+                "FROM PROJECTION P \n" +
+                "INNER JOIN RESERVATION R ON R.PROJECTION_ID_PROJ=P.ID_PROJ\n"+
+                "INNER JOIN MOVIE M ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
+                "INNER JOIN CITY C ON R.CITY_ID_CITY=C.ID_CITY \n"+
                 "WHERE C.NAME_CITY='"+kino+"'AND M.MOVIE_NAME='"+MovieName+"'AND P.date='"+DateProjection+"'; \n";
         List<Projection> listSearchMovie=new ArrayList<>();
         try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
@@ -87,11 +87,12 @@ public class ProjectionDAO {
         return listSearchMovie;
     }
     public List<Projection> searchOfNameProjections(String nameMovie){
-        String sqlSearch="SELECT M.MOVIE_NAME,P.date,P.TIME,R.RATING \n"+
-                "FROM MOVIE M \n" +
-                "INNER JOIN RATING R ON M.RATINGS_ID_RATING=R.ID_RATIONG \n "+
-                "INNER JOIN PROJECTION P ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
-                "WHERE C.NAME_CITY='"+nameMovie+"'; \n";
+        String sqlSearch="SELECT P.date,C.NAME_CITY,P.TIME \n"+
+                "FROM PROJECTION P \n" +
+                "INNER JOIN RESERVATION R ON R.PROJECTION_ID_PROJ=P.ID_PROJ\n"+
+                "INNER JOIN MOVIE M ON P.MOVIE_ID_MOVIE=M.ID_MOVIE \n"+
+                "INNER JOIN CITY C ON R.CITY_ID_CITY=C.ID_CITY \n"+
+                "WHERE M.MOVIE_NAME='"+nameMovie+"'; \n";
         List<Projection> Searchlist=new ArrayList<>();
         try(Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sqlSearch)){
             ResultSet resultSet=preparedStatement.executeQuery();

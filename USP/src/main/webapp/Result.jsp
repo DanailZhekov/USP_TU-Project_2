@@ -12,7 +12,17 @@
 </head>
 <body>
 <%--
+<script type="text/javascript">
+        function getElements()
+        {
+     var rowId = event.target.parentNode.parentNode.id;
+      var data = document.getElementById(rowId).querySelectorAll(".row-data");
+               var data = data[0];
+               var city= data[1];
+                var time = data[2];
 
+        }
+</script>
 <h2>${NameMovie}</h2>
 <p>${GenreMovie}</p>
 <p>${ActorsMovie}</p>
@@ -28,26 +38,27 @@
                     <th>City Projection</th>
                     <th>Time Projection</th>
                 </tr>
-        <tr>
+        <tr id=1>// tuka mai shte ima error
                     <c:forEach var="projection" items="${ListOfProjections}">
-                    <td>
+                    <td class="row-data">
                         <c:out value="${projection.projection_date}"/>
                     </td>
-                    <td>
+                    <td class="row-data">
                         <c:out value="${projection.city_projetion}"/>
                     </td>
-                    <td>
+                    <td class="row-data">
                         <c:out value="${projection.projection_time}"/>
                     </td>
-
+              <td><input type="button"
+                               value="Резервирай"
+                               onclick="getElements()" /></td>
+                </tr>
                 </tr>
                 </c:forEach>
                 </table>
+<button onclick="getElements()" type="submit">Резервирай</button>
 </form>
                 --> Predlagam nakraq da ima edin buton rezervirai i tam veche da se izbira chasut na projekciqta(Mislq che shte e po-lesno i po-burzo)
-                <form action="ResultServlet" method="post">
-            <input type="submit" name="reserv" value="Резервирай">
-                </form>
 --%>
 </body>
 </html>
