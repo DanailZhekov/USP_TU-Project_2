@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="595D970C-F1B9-A6FF-94B4-5035F017E001" mainViewID="7DB2B106-3376-C2DA-4BAD-EE32C51E56BD">
-<createdBy>Chox</createdBy>
-<createdTime>2021-03-22 20:43:42 UTC</createdTime>
-<ownerDesignName>USP_db1</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</LogicalDesign>

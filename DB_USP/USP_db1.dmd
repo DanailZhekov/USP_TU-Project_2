@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="USP_db1" id="834BAA59-F273-A6B8-B303-9A5AAB3A863E" version="3.5">
-<createdBy>Chox</createdBy>
-<createdTime>2021-03-22 20:43:42 UTC</createdTime>
-<ownerDesignName>USP_db1</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>834BAA59-F273-A6B8-B303-9A5AAB3A863E</designId>
-</OSDM_Design>
