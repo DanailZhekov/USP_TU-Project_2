@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D375458E-631E-EA12-C844-6A04D3FAE52C" containerWithKeyObject="03B6F830-FCF1-4D6F-7EF7-EBB03DC52807" localFKIndex="4BF674D5-CB2C-CEB5-F30D-0E454CCE8F79" name="Projection_Streaming_rooms_FK">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>93C1D00B-847E-9D2E-5C23-E440136B2D29</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<referredTableLongName>Streaming_rooms</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CFE54FC5-EF42-9528-03A2-3C69638B77D6</referredTableID>
+<keyObject>FE96113A-86D7-80DC-0A8E-35D29A2CDFB4</keyObject>
+<referredKeyID>FE96113A-86D7-80DC-0A8E-35D29A2CDFB4</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_room</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

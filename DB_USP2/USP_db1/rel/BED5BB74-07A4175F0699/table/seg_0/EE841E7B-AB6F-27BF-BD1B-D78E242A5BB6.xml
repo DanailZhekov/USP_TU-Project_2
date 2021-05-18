@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EE841E7B-AB6F-27BF-BD1B-D78E242A5BB6" name="Ratings">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-23 16:06:27 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_rate" id="72491256-CDB6-C8F7-989F-FA31B92F69B5">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-23 16:07:28 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rating" id="4E050AAE-64E0-4F10-AC80-A75897674BC6">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-23 16:07:28 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D8374134-69C6-DC91-D9F5-98DEE8FADBFF" name="Ratings_PK">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-23 16:07:28 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="72491256-CDB6-C8F7-989F-FA31B92F69B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2F649BC6-0A17-D971-A066-347DF9A71A68" name="Projection">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 20:55:38 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BED5BB74-B2BE-8B45-00AC-07A4175F0699" value="false"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_proj" id="9AC16061-60F4-BC1E-9A58-0AE537C738F1">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 20:56:00 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BED5BB74-B2BE-8B45-00AC-07A4175F0699" value="false"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date " id="D72A6A24-B56D-2156-8FA1-0A21909B279B">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 20:56:18 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BED5BB74-B2BE-8B45-00AC-07A4175F0699" value="false"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="time" id="673C6712-A6EA-F75D-9FFE-1474B1405909">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:00:19 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BED5BB74-B2BE-8B45-00AC-07A4175F0699" value="false"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_movie" id="8254388F-5EFA-D3D8-9154-AF764436EB54">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:07:11 UTC</createdTime>
+<generatorID>C5DFA3E3-A3C7-244B-83E7-DFB5176FEF48</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BED5BB74-B2BE-8B45-00AC-07A4175F0699" value="false"/>
+</engineerTo>
+<referedAttribute>5C381164-8D56-8963-EB10-83329A7BFC5D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_room" id="1345CBC2-067E-DF95-5487-2EE8E336CF1E">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:09:13 UTC</createdTime>
+<generatorID>93C1D00B-847E-9D2E-5C23-E440136B2D29</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BED5BB74-B2BE-8B45-00AC-07A4175F0699" value="false"/>
+</engineerTo>
+<referedAttribute>A208D195-5597-F86F-53C8-486292C87498</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="69634CB8-7169-0D53-F9B8-674AA8BDA449" name="Projection PK">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 20:56:17 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="BED5BB74-B2BE-8B45-00AC-07A4175F0699" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9AC16061-60F4-BC1E-9A58-0AE537C738F1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

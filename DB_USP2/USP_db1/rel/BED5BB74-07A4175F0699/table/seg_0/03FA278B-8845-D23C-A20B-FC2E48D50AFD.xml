@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="03FA278B-8845-D23C-A20B-FC2E48D50AFD" name="movie">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>2C386825-A8AE-5817-497B-FAEF85CFE39E</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_movie" id="A2536D3B-79AF-E5E0-C552-620520B6CCFF">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>5C381164-8D56-8963-EB10-83329A7BFC5D</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="movie_name" id="4F6276FF-083F-2DE0-EBA7-4013DE68563A">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>4581FDE8-B412-4FB9-E4BC-CE5F0E22826B</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Director" id="BA0FCCA1-495C-D210-A7AE-20DEBA6C213C">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>A5FB9C4C-14E0-9648-23A0-7EB02C5DBA34</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Lenght" id="89305015-55A1-15D7-2A83-AB73725C56D0">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>B44776A8-E627-94B9-9A80-5B5626451257</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Actors" id="0555D527-11D3-E916-3D82-1C53484AF7A9">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>DF62222E-BD83-CFD0-CA12-10FEFC78899E</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Summary" id="5822E593-F858-497F-FF0F-CC730CE56D7C">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>037E67AE-D3F4-456C-0B5B-C15203A5C682</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ratings_id_rate" id="30B51F06-75C2-AA67-EDDF-B6D5139461C9">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-23 16:08:37 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D1088B12-EB84-E063-B23D-E247BC7C4A1C" referredColumn="72491256-CDB6-C8F7-989F-FA31B92F69B5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ACA2C05D-8955-930D-0600-A4438C05D163" name="movie_PK">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-22 21:17:54 UTC</createdTime>
+<generatorID>696B68DE-219F-DD24-2EE2-98BA0C72CDF6</generatorID>
+<ownerDesignName>USP_db1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2536D3B-79AF-E5E0-C552-620520B6CCFF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B3B24873-1C5D-2838-614A-67F1FCEFD715" name="movie_Ratings_FK">
+<createdBy>Chox</createdBy>
+<createdTime>2021-03-23 16:08:37 UTC</createdTime>
+<ownerDesignName>USP_db1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="30B51F06-75C2-AA67-EDDF-B6D5139461C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
